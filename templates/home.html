@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Главная - Muscle Feed{% endblock %}
+
+{% block content %}
+
+<!-- Секция Бесплатной доставки -->
+<section class="delivery-info">
+    <h2>Бесплатно доставим в выделенной области</h2>
+    <div class="delivery-benefits">
+        <div class="benefit-item">
+            <img src="{% static 'icons/delivery-icon.svg' %}" alt="Доставка">
+            <p>Доставка каждые два дня с 6 до 12</p>
+        </div>
+        <div class="benefit-item">
+            <img src="{% static 'icons/breakfast-icon.svg' %}" alt="Завтрак">
+            <p>Доставим еду прямо к завтраку</p>
+        </div>
+        <div class="benefit-item">
+            <img src="{% static 'icons/exchange-icon.svg' %}" alt="Замена блюд">
+            <p>Бесплатная замена блюд в меню</p>
+        </div>
+        <div class="benefit-item">
+            <img src="{% static 'icons/natural-icon.svg' %}" alt="Натуральные продукты">
+            <p>Готовим из натуральных продуктов</p>
+        </div>
+    </div>
+    <div class="delivery-buttons">
+        <a href="#" class="order-button">Сделать заказ</a>
+        <a href="#" class="more-info-button">Узнать больше о доставке</a>
+    </div>
+</section>
+
+<!-- Секция отзывов -->
+<section class="reviews">
+    <h2>Реальные отзывы наших клиентов</h2>
+    <p>Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели.</p>
+    <div class="reviews-gallery">
+        {% for review in reviews %}
+        <div class="review-card">
+            <img src="{{ review.image.url }}" alt="Фото отзыва">
+            <h3>{{ review.author_name }}</h3>
+            <p>Рацион {{ review.plan_name }}</p>
+            <p>{{ review.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'reviews:reviews_list' %}" class="see-all-reviews">Смотреть все отзывы</a>
+</section>
+
+<!-- Секция команда -->
+<section class="team">
+    <h2>Наша команда</h2>
+    <p>Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели. <a href="#">Худеть вкусно — легко!</a></p>
+    <div class="team-gallery">
+        <img src="{% static 'images/team-member1.jpg' %}" alt="Член команды">
+        <img src="{% static 'images/team-member2.jpg' %}" alt="Член команды">
+        <img src="{% static 'images/team-member3.jpg' %}" alt="Член команды">
+    </div>
+</section>
+
+{% endblock %}

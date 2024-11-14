@@ -1,0 +1,308 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Навигация */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-menu a {
+    margin: 0 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.try-button {
+    background-color: #00b341;
+    color: #fff;
+}
+
+.social-icons img {
+    width: 24px;
+    margin-left: 10px;
+}
+
+/* Секция преимуществ */
+.benefits {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.benefits h2 {
+    font-size: 24px;
+    color: #00b341;
+    margin-bottom: 20px;
+}
+
+.benefit-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.benefit-card {
+    width: 150px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.action-buttons .order-button {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.action-buttons .more-info-button {
+    background-color: #00b341;
+    color: #fff;
+}
+
+/* Секция отзывов */
+.reviews {
+    padding: 50px 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.reviews-gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.review-card {
+    width: 200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.see-all-reviews {
+    background-color: #00b341;
+    color: #fff;
+}
+
+/* Подвал */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #00b341;
+    margin: 0 10px;
+}
+
+.error {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.success {
+    color: #00b341;
+    font-weight: bold;
+}
+
+.reviews-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.review-card {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.review-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.review-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.review-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.faq-section h3 {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.faq-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.faq-section li {
+    margin-bottom: 15px;
+}
+
+.faq-section li strong {
+    display: block;
+    font-weight: bold;
+}
+/* Секция Доставка */
+.delivery-info {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.delivery-info h2 {
+    color: #00b341;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.delivery-benefits {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.benefit-item {
+    width: 200px;
+    text-align: center;
+}
+
+.delivery-buttons {
+    margin-top: 20px;
+}
+
+.order-button, .more-info-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.order-button {
+    background-color: #ff5722;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.more-info-button {
+    background-color: #00b341;
+    color: #fff;
+}
+
+/* Секция отзывов */
+.reviews {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.reviews h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.reviews-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.review-card {
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.review-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.see-all-reviews {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00b341;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Секция команда */
+.team {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.team h2 {
+    color: #00b341;
+    font-size: 24px;
+}
+
+.team p {
+    margin: 10px 0 20px;
+}
+
+.team a {
+    color: #00b341;
+    text-decoration: underline;
+}
+
+.team-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-gallery img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}

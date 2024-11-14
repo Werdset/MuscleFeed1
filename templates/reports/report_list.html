@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Доступные отчеты</h2>
+<ul>
+    {% for report in reports %}
+        <li>
+            {{ report.get_report_type_display }} от {{ report.generated_at }}
+            <a href="{% url 'reports:download_report' report.id %}">Скачать</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

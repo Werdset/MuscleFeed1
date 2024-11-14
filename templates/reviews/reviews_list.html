@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+<h2>Отзывы наших клиентов</h2>
+<div class="reviews-gallery">
+    {% for review in reviews %}
+    <div class="review-card">
+        {% if review.image %}
+            <img src="{{ review.image.url }}" alt="Изображение отзыва">
+        {% else %}
+            <img src="{% static 'images/default-review.jpg' %}" alt="Отзыв клиента">
+        {% endif %}
+        <h3>{{ review.user.username }}</h3>
+        <p>{{ review.content|linebreaks }}</p>
+        <p><strong>Рейтинг:</strong> {{ review.rating }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

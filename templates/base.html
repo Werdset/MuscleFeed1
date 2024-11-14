@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Здоровая Хавка{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_styles %}{% endblock %}
+</head>
+
+<body>
+    <!-- Навигация -->
+    <header class="navbar">
+        <div class="navbar-logo">
+            <a href="/">MUSCLE FEED</a>
+        </div>
+        <nav class="navbar-menu">
+            <a href="#menu">Рационы</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+            <a href="#for-buyers">Покупателю</a>
+        </nav>
+        <div class="navbar-actions">
+            <button class="try-button">Хочу попробовать</button>
+            <div class="social-icons">
+                <a href="#"><img src="{% static 'icons/telegram-icon.svg' %}" alt="Telegram"></a>
+                <a href="#"><img src="{% static 'icons/whatsapp-icon.svg' %}" alt="WhatsApp"></a>
+                <a href="#"><img src="{% static 'icons/phone-icon.svg' %}" alt="Phone"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Контент страницы -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <a href="/">MUSCLE FEED</a>
+        </div>
+        <div class="footer-contacts">
+            <p>Наш телефон: +8 (800) 123-45-67</p>
+            <p>info@muscle-feed.il</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Партнерская программа</a>
+            <a href="#">Публичная оферта</a>
+            <a href="#">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
+

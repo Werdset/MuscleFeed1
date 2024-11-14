@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Часто задаваемые вопросы{% endblock %}
+
+{% block content %}
+<h2>Часто задаваемые вопросы</h2>
+
+{% for block in question_blocks %}
+    <h3>{{ block.title }}</h3>
+    <ul>
+        {% for question in block.questions.all %}
+            <li>
+                <strong>{{ question.question }}</strong>
+                <p>{{ question.answer|linebreaks }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+{% endblock %}

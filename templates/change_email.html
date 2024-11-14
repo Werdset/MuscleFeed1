@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Смена электронной почты{% endblock %}
+
+{% block content %}
+<h2>Смена электронной почты</h2>
+
+{% if message %}
+    <p class="success">{{ message }}</p>
+{% elif error_message %}
+    <p class="error">{{ error_message }}</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Изменить email</button>
+</form>
+{% endblock %}
