@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'reviews.apps.ReviewsConfig',
     'reports.apps.ReportsConfig',
     'core.apps.CoreConfig',
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'dishes.apps.DishesConfig',
+    'videos.apps.VideosConfig',
+    'translations.apps.TranslationsConfig',
+    'settings.apps.SettingsConfig'
 ]
 
 MIDDLEWARE = [

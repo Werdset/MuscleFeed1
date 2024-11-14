@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23c6e93b-e36e-4b34-aa62-5a5bd8671bfb" name="Changes" comment="а" />
+    <list default="true" id="23c6e93b-e36e-4b34-aa62-5a5bd8671bfb" name="Changes" comment="а">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dishes/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/translations/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/videos/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MuscleFeed/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MuscleFeed/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +33,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Werdset"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Werdset/MuscleFeed1.git",
+    "accountId": "b529f2a7-861b-4836-b2ea-6cf7880cf45b"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -42,7 +62,9 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "E:/my/MuscleFeed",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -104,6 +126,7 @@
       <workItem from="1731602771555" duration="137000" />
       <workItem from="1731602946783" duration="43000" />
       <workItem from="1731603004621" duration="143000" />
+      <workItem from="1731603174077" duration="1552000" />
     </task>
     <task id="LOCAL-00001" summary="новый проект">
       <option name="closed" value="true" />
