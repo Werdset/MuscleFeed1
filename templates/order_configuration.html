@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="breadcrumbs">
+        <a href="{% url 'personal_cabinet' %}">Личный кабинет</a> >
+        <span>Ваши заказы</span>
+    </div>
+
+    <h1 class="page-title">КОНФИГУРАЦИЯ РАЦИОНА</h1>
+    <p>Наше меню разработано профессиональными диетологами из натуральных продуктов для достижения ваших целей.</p>
+
+    <div class="order-card">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label>Рацион:</label>
+                <select name="diet">
+                    <option value="balanced">Сбалансированный</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Калорийность:</label>
+                <input type="number" name="calories" value="{{ order.calories }}">
+            </div>
+            <div class="input-group">
+                <label>Длительность:</label>
+                <input type="text" name="duration" value="{{ order.duration }}">
+            </div>
+            <div class="input-group">
+                <label>Аллергены:</label>
+                <input type="text" name="allergens" value="{{ order.allergens }}">
+            </div>
+            <button type="submit" class="btn green">Сохранить изменения</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="breadcrumbs">
+        <a href="{% url 'personal_cabinet' %}">Личный кабинет</a> >
+        <span>Ваши заказы</span>
+    </div>
+
+    <h1 class="page-title">ВАШИ ЗАКАЗЫ</h1>
+    <div class="summary-card">
+        <h2>КОНФИГУРАЦИЯ РАЦИОНА</h2>
+        <p>Наше меню разработано профессиональными диетологами для ваших целей.</p>
+
+        <div class="summary-details">
+            <p><strong>Рацион:</strong> {{ order.diet }}</p>
+            <p><strong>Калорийность:</strong> {{ order.calories }} ККал</p>
+            <p><strong>Длительность:</strong> {{ order.duration }} дней</p>
+            <p><strong>Начало доставки:</strong> {{ order.start_date }}</p>
+            <p><strong>Аллергены:</strong> {{ order.allergens }}</p>
+        </div>
+        <a href="{% url 'order_configuration' order.id %}" class="btn green">Перейти к настройке</a>
+    </div>
+</div>
+{% endblock %}

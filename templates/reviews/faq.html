@@ -1,19 +1,81 @@
 {% extends 'base.html' %}
-
-{% block title %}Часто задаваемые вопросы{% endblock %}
+{% load static %}
+{% block title %}FAQ{% endblock %}
 
 {% block content %}
-<h2>Часто задаваемые вопросы</h2>
+<div class="faq-container">
 
-{% for block in question_blocks %}
-    <h3>{{ block.title }}</h3>
-    <ul>
-        {% for question in block.questions.all %}
-            <li>
-                <strong>{{ question.question }}</strong>
-                <p>{{ question.answer|linebreaks }}</p>
-            </li>
+    <!-- Заголовок и описание -->
+    <h1 class="faq-title">ОТВЕТЫ НА ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h1>
+    <p class="faq-description">
+        Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели.
+    </p>
+
+    <!-- Блок иконок -->
+    <div class="faq-icons">
+        <div class="faq-icon active">
+            <img src="{% static 'images/icon-delivery.png' %}" alt="Доставка">
+            <p>ДОСТАВКА</p>
+        </div>
+        <div class="faq-icon">
+            <img src="{% static 'images/icon-payment.png' %}" alt="Оплата">
+            <p>ОПЛАТА</p>
+        </div>
+        <div class="faq-icon">
+            <img src="{% static 'images/icon-ration.png' %}" alt="Рационы">
+            <p>РАЦИОНЫ</p>
+        </div>
+        <div class="faq-icon">
+            <img src="{% static 'images/icon-storage.png' %}" alt="Хранение">
+            <p>ХРАНЕНИЕ</p>
+        </div>
+        <div class="faq-icon">
+            <img src="{% static 'images/icon-slimming.png' %}" alt="Похудение">
+            <p>ПОХУДЕНИЕ</p>
+        </div>
+    </div>
+
+    <!-- Вопросы и ответы -->
+    <div class="faq-questions">
+        {% for block in question_blocks %}
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>{{ block.title }}</h3>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>{{ block.answer }}</p>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
-{% endfor %}
+    </div>
+</div>
+
+<!-- Баннер -->
+<div class="faq-banner">
+    <h2>ЗАКАЗАТЬ ЕДУ ЛЕГКО ВЫБИРАЙТЕ ПРОГРАММУ И <span>ДОСТИГАЙТЕ ЦЕЛИ</span></h2>
+    <p>Меню с КБЖУ: креветки, авокадо, свежие ягоды и другие премиальные продукты.</p>
+    <a href="#" class="btn green">Узнать подробнее →</a>
+</div>
+
+
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        const toggleIcon = item.querySelector(".toggle-icon");
+
+        question.addEventListener("click", () => {
+            const isOpen = answer.style.display === "block";
+            answer.style.display = isOpen ? "none" : "block";
+            toggleIcon.textContent = isOpen ? "+" : "-";
+        });
+    });
+});
+    </script>
+    
 {% endblock %}

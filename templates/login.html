@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Вход{% endblock %}
+{% block title %}{% trans "Вход" %}{% endblock %}
 
 {% block content %}
-<h2>Вход в аккаунт</h2>
+<h2>{% trans "Вход в аккаунт" %}</h2>
 
 {% if error_message %}
     <p class="error">{{ error_message }}</p>
@@ -12,13 +13,14 @@
 <form method="post">
     {% csrf_token %}
     <p>
-        <label for="username">Имя пользователя</label>
+        <label for="username">{% trans "Имя пользователя" %}</label>
         <input type="text" name="username" id="username" required>
     </p>
     <p>
-        <label for="password">Пароль</label>
+        <label for="password">{% trans "Пароль" %}</label>
         <input type="password" name="password" id="password" required>
     </p>
-    <button type="submit">Войти</button>
+    <button type="submit">{% trans "Войти" %}</button>
 </form>
 {% endblock %}
+

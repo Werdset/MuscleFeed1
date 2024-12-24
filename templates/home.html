@@ -1,6 +1,10 @@
+
 {% extends 'base.html' %}
-{% block title %}Главная - Muscle Feed{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Главная - Muscle Feed" %}{% endblock %}
 {% load static %}
+
+
 {% block content %}
     
 <!-- Секция готовых рационов с доставкой -->
@@ -8,348 +12,296 @@
     <div class="meal-delivery-container">
         <div class="meal-info">
             <h2>
-                <strong>ГОТОВЫЕ</strong><br>
-                <span class="green-text">СБАЛАНСИРОВАННЫЕ РАЦИОНЫ</span><br>
-                НА КАЖДЫЙ ДЕНЬ
+                <strong>{% trans "ГОТОВЫЕ" %}</strong><br>
+                <span class="green-text">{% trans "СБАЛАНСИРОВАННЫЕ РАЦИОНЫ" %}</span><br>
+                {% trans "НА КАЖДЫЙ ДЕНЬ" %}
             </h2>
             <div class="delivery-highlight">
-                <span class="highlight-text">С ДОСТАВКОЙ НА ДОМ</span>
+                <span class="highlight-text">{% trans "С ДОСТАВКОЙ НА ДОМ" %}</span>
             </div>
-            <p>
-                Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели.
-            </p>
+            <p>{% trans "Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели." %}</p>
             <p class="goal-text">
-                <span class="green-text">Добиваться целей - легко, с Muscle Feed!</span>
+                <span class="green-text">{% trans "Добиваться целей - легко, с Muscle Feed!" %}</span>
             </p>
-            <a href="#" class="order-button">Выбрать меню →</a>
+            <a href="#" class="order-button">{% trans "Выбрать меню →" %}</a>
         </div>
         <div class="meal-image">
-            <img src="{% static 'images/eat.png' %}" alt="Контейнеры с едой">
+            <img src="{% static 'images/eat.png' %}" alt="{% trans 'Контейнеры с едой' %}">
         </div>
     </div>
 </section>
     
     <div class="features-container">
-        <div class="feature-item">
-            <img src="{% static 'images/Delivery.png' %}" alt="Доставка">
-            <p>Доставка раз в два дня вечером</p>
-        </div>
-        <div class="feature-item">
-            <img src="{% static 'images/Frame.png' %}" alt="Гарантия">
-            <p>Гарантируем вкус и качество</p>
-        </div>
-        <div class="feature-item">
-            <img src="{% static 'images/Menu.png' %}" alt="Свежая еда">
-            <p>Свежая еда на каждые два дня</p>
-        </div>
-        <div class="feature-item">
-            <img src="{% static 'images/Re.png' %}" alt="Замена блюд">
-            <p>Предоставляем возможности для замены блюд</p>
-        </div>
-        <div class="feature-item">
-            <img src="{% static 'images/product.png' %}" alt="Натуральные продукты">
-            <p>Готовим из натуральных продуктов</p>
-        </div>
+    <div class="feature-item">
+        <img src="{% static 'images/Delivery.png' %}" alt="{% trans 'Доставка' %}">
+        <p>{% trans "Доставка раз в два дня вечером" %}</p>
     </div>
+    <div class="feature-item">
+        <img src="{% static 'images/Frame.png' %}" alt="{% trans 'Гарантия' %}">
+        <p>{% trans "Гарантируем вкус и качество" %}</p>
+    </div>
+    <div class="feature-item">
+        <img src="{% static 'images/Menu.png' %}" alt="{% trans 'Свежая еда' %}">
+        <p>{% trans "Свежая еда на каждые два дня" %}</p>
+    </div>
+    <div class="feature-item">
+        <img src="{% static 'images/Re.png' %}" alt="{% trans 'Замена блюд' %}">
+        <p>{% trans "Предоставляем возможности для замены блюд" %}</p>
+    </div>
+    <div class="feature-item">
+        <img src="{% static 'images/product.png' %}" alt="{% trans 'Натуральные продукты' %}">
+        <p>{% trans "Готовим из натуральных продуктов" %}</p>
+    </div>
+</div>
 <!-- Блок меню -->
 <section class="meal-plans">
-  <h2 class="meal-plans-title">ВАШЕ МЕНЮ — ВАШИ ПРАВИЛА: НАСТРОЙТЕ ПОД СЕБЯ</h2>
+  <h2 class="meal-plans-title">{% trans "ВАШЕ МЕНЮ — ВАШИ ПРАВИЛА: НАСТРОЙТЕ ПОД СЕБЯ"%}</h2>
   <div class="plans-container">
-    <div class="plan-card balance">
-      <div class="plan-content">
-        <div class="plan-text">
-          <h3>БАЛАНС</h3>
-          <p>Готовые решения для похудения, набора массы или просто правильного питания.</p>
-          <div class="plan-price">от <span>799 ₽</span></div>
-        </div>
-        <img src="{% static 'images/balance.png' %}" alt="Баланс" class="plan-image">
+  {% for menu in menus %}
+  <div class="plan-card">
+    <div class="plan-content">
+      <div class="plan-text">
+        <h3>{{ menu.name }}</h3>
+        <p>{{ menu.description }}</p>
+        <div class="plan-price">от <span>{% trans "{{ menu.price }}"  %}</span></div>
       </div>
-    </div>
-    <div class="plan-card combo selected">
-      <div class="plan-content">
-        <div class="plan-text">
-          <h3>КОМБО</h3>
-          <p>Не хотите тратить время на готовку? Выбирайте комбо-наборы — быстро, вкусно и полезно.</p>
-          <div class="plan-price">от <span>1799 ₽</span></div>
-        </div>
-        <img src="{% static 'images/combo.png' %}" alt="Комбо" class="plan-image">
-      </div>
-    </div>
-    <div class="plan-card choice">
-      <div class="plan-content">
-        <div class="plan-text">
-          <h3>НА ВЫБОР</h3>
-          <p>Выберите любые блюда на свой вкус и составьте свой идеальный заказ.</p>
-          <div class="plan-price">от <span>200 ₽</span></div>
-        </div>
-        <img src="{% static 'images/choice.png' %}" alt="На выбор" class="plan-image">
-      </div>
+      <img src="{{ menu.image.url }}" alt="{% trans "{{ menu.name }}" %}" class="plan-image">
     </div>
   </div>
+  {% endfor %}
+</div>
 </section>
     
     
 <section class="nutrition-programs">
-  <h2 class="section-title">СБАЛАНСИРОВАННЫЕ ПРОГРАММЫ ПИТАНИЯ НА КАЖДЫЙ ДЕНЬ</h2>
+  <h2 class="section-title">{% trans "СБАЛАНСИРОВАННЫЕ ПРОГРАММЫ ПИТАНИЯ НА КАЖДЫЙ ДЕНЬ" %} </h2>
   <p class="section-description">
-    Для тех, кто ценит своё время и здоровье: готовые решения для похудения, набора массы или просто правильного питания. Мы продумали всё, чтобы вы могли наслаждаться и достигать своих целей.
+    {% trans "Для тех, кто ценит своё время и здоровье: готовые решения для похудения, набора массы или просто правильного питания. Мы продумали всё, чтобы вы могли наслаждаться и достигать своих целей." %}
   </p>
 
-  <!-- Калорийность -->
-  <div class="program-row">
-    <label class="row-title">Калорийность, ккал:</label>
-    <div class="options">
-      <button class="option active">750 ккал <span>4 приема</span></button>
-      <button class="option">1 000 ккал <span>5 приемов</span></button>
-      <button class="option">1 500 ккал <span>6 приемов</span></button>
-      <button class="option">1 500 ккал <span>6 приемов</span></button>
-    </div>
-  </div>
-
-  <!-- Длительность -->
-  <div class="program-row">
-    <label class="row-title">Длительность:</label>
-    <div class="options">
-      <button class="option active">1 день</button>
-      <button class="option">2 дня</button>
-      <button class="option">5 дней</button>
-      <button class="option promo">Неделя<span class="badge">3 дня в подарок</span></button>
-      <button class="option promo">2 недели<span class="badge">-10%</span></button>
-      <button class="option promo">Месяц<span class="badge">-20%</span></button>
-    </div>
-  </div>
-
-  <!-- Формат питания -->
-  <div class="program-row">
-    <label class="row-title">Формат питания:</label>
-    <div class="options">
-      <button class="option active">Будни</button>
-      <button class="option">Пропускаем пятницу</button>
-      <button class="option">Пропускаем пятницу и субботу</button>
-    </div>
-  </div>
-
-  <!-- Дата начала -->
- <!-- Кнопка для выбора даты -->
+<!-- Калорийность -->
 <div class="program-row">
-  <label class="row-title">С какого дня начинаем:</label>
+  <label class="row-title">{% trans "Калорийность, ккал:" %}</label>
   <div class="options">
-    <button class="option date" id="openCalendar">Выберите дату</button>
-    <span class="delivery-info">Мы привезем еду: <span id="selectedDate">15.12.2024 года</span></span>
+    <button class="option active">{% trans "750 ккал" %} <span>{% trans "4 приема" %}</span></button>
+    <button class="option">{% trans "1 000 ккал" %} <span>{% trans "5 приемов" %}</span></button>
+    <button class="option">{% trans "1 500 ккал" %} <span>{% trans "6 приемов" %}</span></button>
+    <button class="option">{% trans "1 500 ккал" %} <span>{% trans "6 приемов" %}</span></button>
   </div>
 </div>
 
-<!-- Модальное окно с календарём -->
+<!-- Длительность -->
+<div class="program-row">
+  <label class="row-title">{% trans "Длительность:" %}</label>
+  <div class="options">
+    <button class="option active">{% trans "1 день" %}</button>
+    <button class="option">{% trans "2 дня" %}</button>
+    <button class="option">{% trans "5 дней" %}</button>
+    <button class="option promo">{% trans "Неделя" %}<span class="badge">{% trans "3 дня в подарок" %}</span></button>
+    <button class="option promo">{% trans "2 недели" %}<span class="badge">-10%</span></button>
+    <button class="option promo">{% trans "Месяц" %}<span class="badge">-20%</span></button>
+  </div>
+</div>
+
+<!-- Формат питания -->
+<div class="program-row">
+  <label class="row-title">{% trans "Формат питания:" %}</label>
+  <div class="options">
+    <button class="option active">{% trans "Будни" %}</button>
+    <button class="option">{% trans "Пропускаем пятницу" %}</button>
+    <button class="option">{% trans "Пропускаем пятницу и субботу" %}</button>
+  </div>
+</div>
+
+<!-- Дата начала -->
+<div class="program-row">
+  <label class="row-title">{% trans "С какого дня начинаем:" %}</label>
+  <div class="options">
+    <button class="option date" id="openCalendar">{% trans "Выберите дату" %}</button>
+    <span class="delivery-info">{% trans "Мы привезем еду: " %}<span id="selectedDate">{% trans "15.12.2024 года" %}</span></span>
+  </div>
+</div>
+
 <!-- Модальное окно с календарём -->
 <div class="modal" id="calendarModal">
   <div class="modal-content">
     <span class="close" id="closeCalendar">&times;</span>
-    <h3>ВЫБОР ДАТЫ</h3>
-    <p>Выберите удобный для вас способ:</p>
+    <h3>{% trans "ВЫБОР ДАТЫ" %}</h3>
+    <p>{% trans "Выберите удобный для вас способ:" %}</p>
     <div id="calendarContainer" class="calendar"></div>
-    <button class="submit-date" id="submitDate">Выбрать дату →</button>
+    <button class="submit-date" id="submitDate">{% trans "Выбрать дату →" %}</button>
   </div>
 </div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const openCalendarBtn = document.getElementById("openCalendar");
-  const closeCalendarBtn = document.getElementById("closeCalendar");
-  const calendarModal = document.getElementById("calendarModal");
-  const submitDateBtn = document.getElementById("submitDate");
-  const selectedDateSpan = document.getElementById("selectedDate");
-  const calendarContainer = document.getElementById("calendarContainer");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // Функция переключения активных кнопок
+                const handleActiveButton = (buttonsContainer) => {
+            const buttons = buttonsContainer.querySelectorAll(".option");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                });
+            });
+        };
 
-  let selectedDate = null;
+    // Инициализация для каждой строки с кнопками
+        document.querySelectorAll(".program-row .options").forEach(container => {
+            handleActiveButton(container);
+        });
+        });
+    </script>
 
-  // Функция рендеринга календаря
-  function renderCalendar(date) {
-    const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", 
-                        "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-    const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
-    // Очистка календаря
-    calendarContainer.innerHTML = `
-      <div class="calendar-header">
-        <button id="prevMonth">&lt;</button>
-        <span>${monthNames[date.getMonth()]} ${date.getFullYear()}</span>
-        <button id="nextMonth">&gt;</button>
-      </div>
-      <table>
-        <thead><tr>${daysOfWeek.map(day => `<th>${day}</th>`).join("")}</tr></thead>
-        <tbody></tbody>
-      </table>
-    `;
-
-    const tbody = calendarContainer.querySelector("tbody");
-    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-    const lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-
-    let row = "<tr>";
-    for (let i = 1; i < (firstDay || 7); i++) row += "<td></td>";
-
-    for (let day = 1; day <= lastDate; day++) {
-      row += `<td class="calendar-day">${day}</td>`;
-      if ((day + firstDay - 1) % 7 === 0) {
-        row += "</tr><tr>";
-      }
-    }
-    row += "</tr>";
-    tbody.innerHTML = row;
-
-    // Добавляем обработку кликов по дням
-    tbody.querySelectorAll(".calendar-day").forEach(day => {
-      day.addEventListener("click", () => {
-        tbody.querySelectorAll(".calendar-day").forEach(d => d.classList.remove("selected"));
-        day.classList.add("selected");
-        selectedDate = `${day.textContent.padStart(2, "0")}.${(date.getMonth() + 1)
-          .toString().padStart(2, "0")}.${date.getFullYear()}`;
-      });
-    });
-
-    // Переключение месяцев
-    document.getElementById("prevMonth").addEventListener("click", () => {
-      renderCalendar(new Date(date.getFullYear(), date.getMonth() - 1));
-    });
-    document.getElementById("nextMonth").addEventListener("click", () => {
-      renderCalendar(new Date(date.getFullYear(), date.getMonth() + 1));
-    });
-  }
-
-  // Открытие и закрытие модального окна
-  openCalendarBtn.addEventListener("click", () => {
-    calendarModal.style.display = "block";
-    renderCalendar(new Date());
-  });
-  closeCalendarBtn.addEventListener("click", () => calendarModal.style.display = "none");
-  window.addEventListener("click", event => {
-    if (event.target === calendarModal) calendarModal.style.display = "none";
-  });
-
-  // Подтверждение выбранной даты
-  submitDateBtn.addEventListener("click", () => {
-    if (selectedDate) {
-      selectedDateSpan.textContent = selectedDate;
-      calendarModal.style.display = "none";
-    } else {
-      alert("Пожалуйста, выберите дату!");
-    }
-  });
-});
-</script>
 
 </section>
     
 <section class="menu-example">
-  <h3 class="menu-title">Пример меню:</h3>
+  <h3 class="menu-title">{% trans "Пример меню:" %}</h3>
 
   <!-- Вкладки с днями недели -->
   <div class="week-tabs">
-    <button class="day-tab active" data-day="mon">Пн</button>
-    <button class="day-tab" data-day="tue">Вт</button>
-    <button class="day-tab" data-day="wed">Ср</button>
-    <button class="day-tab" data-day="thu">Чт</button>
-    <button class="day-tab" data-day="fri">Пт</button>
-    <button class="day-tab" data-day="sat">Сб</button>
-    <button class="day-tab" data-day="sun">Вс</button>
+    <button class="day-tab active" data-day="mon">{% trans "Пн" %}</button>
+    <button class="day-tab" data-day="tue">{% trans "Вт" %}</button>
+    <button class="day-tab" data-day="wed">{% trans "Ср" %}</button>
+    <button class="day-tab" data-day="thu">{% trans "Чт" %}</button>
+    <button class="day-tab" data-day="fri">{% trans "Пт" %}</button>
+    <button class="day-tab" data-day="sat">{% trans "Сб" %}</button>
+    <button class="day-tab" data-day="sun">{% trans "Вс" %}</button>
   </div>
 
   <!-- Кнопки прокрутки -->
   <button class="scroll-btn left-btn" id="scrollLeft">&lt;</button>
 
-  <!-- Контейнер с карточками -->
   <div class="cards-container" id="cardsContainer">
-    <!-- Пример карточек (повторяющиеся для всех дней) -->
-    <div class="card" data-day="all">
-      <img src="dish.jpg" alt="Овощное рагу" class="card-image">
-      <span class="label">Завтрак</span>
-      <h4 class="card-title">Овощное рагу с фрикадельками</h4>
-      <p class="card-info">Ккал 200 | Б 20 | Ж 20 | У 200</p>
-      <button class="replace-btn">Заменить блюдо</button>
-    </div>
-    <div class="card" data-day="all"> <!-- Дублируем карточку -->
-      <img src="dish.jpg" alt="Овощное рагу" class="card-image">
-      <span class="label">Завтрак</span>
-      <h4 class="card-title">Овощное рагу с фрикадельками</h4>
-      <p class="card-info">Ккал 200 | Б 20 | Ж 20 | У 200</p>
-      <button class="replace-btn">Заменить блюдо</button>
-    </div>
-    <!-- Добавьте больше карточек по необходимости -->
+    {% for dish in dishes %}
+      <div class="card">
+        <img src="{{ dish.image.url }}" alt="{{ dish.name }}" class="card-image">
+        <span class="label">{{ dish.category }}</span>
+        <h4 class="card-title">{{ dish.name }}</h4>
+        <p class="card-info">
+          Ккал: {{ dish.calories }} | Б: {{ dish.proteins }} | Ж: {{ dish.fats }} | У: {{ dish.carbs }}
+        </p>
+        <button class="replace-btn">{% trans "Заменить блюдо" %}</button>
+      </div>
+    {% endfor %}
   </div>
 
   <!-- Кнопка прокрутки вправо -->
   <button class="scroll-btn right-btn" id="scrollRight">&gt;</button>
 </section>
-    
 
-    
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const tabs = document.querySelectorAll(".day-tab");
-  const cardsContainer = document.getElementById("cardsContainer");
-  const scrollLeftBtn = document.getElementById("scrollLeft");
-  const scrollRightBtn = document.getElementById("scrollRight");
-
-  const scrollAmount = 300; // Шаг прокрутки
-
-  // Обновление вкладок
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((t) => t.classList.remove("active"));
-      tab.classList.add("active");
-
-      // Дублируем карточки на основе выбора дня (если нужно)
-      cardsContainer.innerHTML = "";
-      for (let i = 0; i < 5; i++) {
-        cardsContainer.innerHTML += `
-          <div class="card">
-            <img src="dish.jpg" alt="Овощное рагу" class="card-image">
-            <span class="label">Завтрак</span>
-            <h4 class="card-title">Овощное рагу с фрикадельками</h4>
-            <p class="card-info">Ккал 200 | Б 20 | Ж 20 | У 200</p>
-            <button class="replace-btn">Заменить блюдо</button>
-          </div>
-        `;
-      }
-    });
-  });
-
-  // Прокрутка
-  scrollLeftBtn.addEventListener("click", () => {
-    cardsContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  });
-
-  scrollRightBtn.addEventListener("click", () => {
-    cardsContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  });
-
-  // Инициализация
-  tabs[0].click();
-});
-
-    </script>
-    
 <section class="discount-section">
-    <div class="discount-left">
-        <p class="discount-title">СКИДКА! НЕ УПУСКАЙ ВОЗМОЖНОСТЬ</p>
-        <p class="diet-info">Рацион на 2 дня <span class="highlight">(5 приемов пищи в день)</span></p>
-        <p class="total-price">ИТОГО: <span class="price">145 ₽</span> / день</p>
-        <button class="order-btn">Оформить заказ за 2 345 ₽ →</button>
+  <div class="discount-left">
+    <p class="discount-title">{% trans "СКИДКА! НЕ УПУСКАЙ ВОЗМОЖНОСТЬ" %}</p>
+    <p class="diet-info">{% trans "Рацион на 2 дня " %}<span class="highlight">({% trans "5 приемов пищи в день" %})</span></p>
+    <p class="total-price">{% trans "ИТОГО: " %}<span class="price">145 ₽</span> / день</p>
+    <button class="order-btn">{% trans "Оформить заказ за 2 345 ₽ →" %}</button>
+  </div>
+
+  <div class="discount-right">
+    <h2 class="main-title">{% trans "НЕ МОЖЕТЕ ВЫБРАТЬ ЧТО ВАМ НУЖНО" %}</h2>
+    <p class="try-text">{% trans "ПРОСТО ПОПРОБУЙТЕ " %}<span class="green-text">{% trans "НАШИ БЛЮДА" %}</span></p>
+    <p class="menu-details">{% trans "Меню с КБЖУ: креветки, авокадо, свежие ягоды и другие премиальные продукты." %}</p>
+
+    <div class="buttons">
+        <button class="test-order-btn" id="testOrderBtn">{% trans "Сделать пробный заказ →" %}</button>
+        <button class="trial-price-btn" id="trialPriceBtn">{% trans "Пробный заказ за 500 ₽" %}</button>
+    </div>
+    
+    <!-- Модальное окно для подтверждения пробного заказа -->
+    <div id="testOrderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h3>{% trans "Вы хотите сделать пробный заказ?" %}</h3>
+            <button class="btn green" id="confirmTestOrder">{% trans "Подтвердить" %}</button>
+            <button class="btn red" id="cancelTestOrder">{% trans "Отменить" %}</button>
+        </div>
     </div>
 
-    <div class="discount-right">
-        <h2 class="main-title">НЕ МОЖЕТЕ ВЫБРАТЬ ЧТО ВАМ НУЖНО</h2>
-        <p class="try-text">ПРОСТО ПОПРОБУЙТЕ <span class="green-text">НАШИ БЛЮДА</span></p>
-        <p class="menu-details">Меню с КБЖУ: креветки, авокадо, свежие ягоды и другие премиальные продукты.</p>
-
-        <div class="buttons">
-            <button class="test-order-btn">Сделать пробный заказ →</button>
-            <button class="trial-price-btn">Пробный заказ за 500 ₽</button>
+    <!-- Модальное окно для запроса обратного звонка -->
+    <div id="callbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCallbackModal">&times;</span>
+            <h3>{% trans "Оставьте ваши данные для обратного звонка" %}</h3>
+            <form id="callbackForm">
+                <div class="input-group">
+                    <label>{% trans "Ваше имя" %}</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>{% trans "Ваш номер телефона" %}</label>
+                    <input type="text" name="phone" required>
+                </div>
+                <button type="submit" class="btn green">{% trans "Оставить заявку" %}</button>
+            </form>
         </div>
-        <div class="note">Сразу станет ясно!</div>
+    </div>
+</div>
+<script>
+    // Получение элементов модальных окон и кнопок
+    var testOrderBtn = document.getElementById("testOrderBtn");
+    var trialPriceBtn = document.getElementById("trialPriceBtn");
+    var testOrderModal = document.getElementById("testOrderModal");
+    var callbackModal = document.getElementById("callbackModal");
+    var closeModal = document.getElementById("closeModal");
+    var closeCallbackModal = document.getElementById("closeCallbackModal");
+    var confirmTestOrder = document.getElementById("confirmTestOrder");
+    var cancelTestOrder = document.getElementById("cancelTestOrder");
+
+    // Открытие модального окна для пробного заказа
+    testOrderBtn.onclick = function() {
+        testOrderModal.style.display = "block";
+    };
+
+    // Закрытие модального окна
+    closeModal.onclick = function() {
+        testOrderModal.style.display = "none";
+    };
+    cancelTestOrder.onclick = function() {
+        testOrderModal.style.display = "none";
+    };
+
+    // Подтверждение пробного заказа
+    confirmTestOrder.onclick = function() {
+        // Здесь можно добавить логику для отправки запроса на сервер
+        alert("{% trans 'Пробный заказ оформлен' %}");
+        testOrderModal.style.display = "none";
+    };
+
+    // Открытие модального окна для обратного звонка
+    trialPriceBtn.onclick = function() {
+        callbackModal.style.display = "block";
+    };
+
+    // Закрытие модального окна обратного звонка
+    closeCallbackModal.onclick = function() {
+        callbackModal.style.display = "none";
+    };
+
+    // Обработка отправки формы обратного звонка
+    document.getElementById("callbackForm").onsubmit = function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+
+        // Отправка данных на сервер (например, через AJAX)
+        fetch("{% url 'orders:request_callback' %}", {
+            method: "POST",
+            body: formData
+        }).then(response => {
+            if (response.ok) {
+                alert("{% trans 'Спасибо! Мы скоро с вами свяжемся.' %}");
+                callbackModal.style.display = "none";
+            } else {
+                alert("{% trans 'Произошла ошибка, попробуйте снова.' %}");
+            }
+        });
+    };
+</script>
+    <div class="note">{% trans "Сразу станет ясно!" %}</div>
 
         <div class="images">
-            <img src="{% static 'images/salad.png' %}" alt="Салат" class="dish-image">
-            <img src="{% static 'images/meatballs.png' %}" alt="Мясные блюда" class="dish-image">
+            <img src="{% static 'images/salad.png' %}" alt="{% trans "Салат"%}" class="dish-image">
+            <img src="{% static 'images/meatballs.png' %}" alt="{% trans "Мясные блюда"%}" class="dish-image">
         </div>
     </div>
 </section>
@@ -420,63 +372,237 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 
-<!-- Секция отзывов -->
 <section class="reviews">
-    <div class="reviews-header">
-        <h2>РЕАЛЬНЫЕ ОТЗЫВЫ НАШИХ КЛИЕНТОВ</h2>
-        <p>Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели.</p>
-    </div>
+  <div class="reviews-header">
+    <h2>{% trans "РЕАЛЬНЫЕ ОТЗЫВЫ НАШИХ КЛИЕНТОВ" %}</h2>
+    <p>{% trans "Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели." %}</p>
+  </div>
 
-    <div class="reviews-gallery">
-        {% for review in reviews %}
-        <div class="review-card">
-            <img src="{{ review.image.url }}" alt="Фото отзыва" class="review-image">
-            <div class="review-content">
-                <span class="review-plan">Рацион {{ review.plan_name }}</span>
-                <h3 class="review-author">{{ review.author_name }}</h3>
-                <p class="review-text">
-                    {{ review.content|truncatechars:150 }}
-                </p>
-                <a href="#" class="review-link">Смотреть весь отзыв</a>
-            </div>
+  <div class="reviews-gallery">
+    {% for review in reviews %}
+      <div class="review-card">
+        <img src="{{ review.image.url }}" alt="{% trans "Фото отзыва" %}" class="review-image">
+        <div class="review-content">
+          <span class="review-plan">{% trans "Рацион" %} {{ review.plan_name }}</span>
+          <h3 class="review-author">{{ review.author_name }}</h3>
+          <p class="review-text">
+            {{ review.content|truncatechars:150 }}
+          </p>
+          <a href="#" class="review-link">{% trans "Смотреть весь отзыв" %}</a>
         </div>
-        {% endfor %}
-    </div>
-    <a href="{% url 'reviews:reviews_list' %}" class="see-all-reviews">Смотреть все отзывы →</a>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="{% url 'reviews:reviews_list' %}" class="see-all-reviews">{% trans "Смотреть все отзывы →" %}</a>
 </section>
 
 <section class="delivery-section">
-    <div class="delivery-content">
-        <h2 class="delivery-title">БЕСПЛАТНО ДОСТАВИМ</h2>
-        <p class="delivery-subtitle">в выделенной области</p>
-        
-        <div class="delivery-benefits">
-            <div class="benefit-item">
-                <img src="{% static 'images/Delivery.png' %}" alt="Иконка доставки">
-                <p>Доставка каждые два дня с 6 до 12</p>
-            </div>
-            <div class="benefit-item">
-                <img src="{% static 'images/menu.png' %}" alt="Иконка завтрака">
-                <p>Доставим еду прямо к завтраку</p>
-            </div>
-            <div class="benefit-item">
-                <img src="{% static 'images/Re.png' %}" alt="Иконка замены блюд">
-                <p>Бесплатная замена блюд в меню</p>
-            </div>
-            <div class="benefit-item">
-                <img src="{% static 'images/product.png' %}" alt="Иконка натуральных продуктов">
-                <p>Готовим из натуральных продуктов</p>
-            </div>
-        </div>
-
-        <div class="delivery-buttons">
-            <a href="#" class="btn-order">Сделать заказ →</a>
-            <a href="#" class="btn-more-info">Узнать больше о доставке →</a>
-        </div>
+  <div class="delivery-content">
+    <h2 class="delivery-title">{% trans "БЕСПЛАТНО ДОСТАВИМ" %}</h2>
+    <p class="delivery-subtitle">{% trans "в выделенной области" %}</p>
+    
+    <div class="delivery-benefits">
+      <div class="benefit-item">
+        <img src="{% static 'images/Delivery.png' %}" alt="{% trans "Иконка доставки" %}">
+        <p>{% trans "Доставка каждые два дня с 6 до 12" %}</p>
+      </div>
+      <div class="benefit-item">
+        <img src="{% static 'images/menu.png' %}" alt="{% trans "Иконка завтрака" %}">
+        <p>{% trans "Доставим еду прямо к завтраку" %}</p>
+      </div>
+      <div class="benefit-item">
+        <img src="{% static 'images/Re.png' %}" alt="{% trans "Иконка замены блюд" %}">
+        <p>{% trans "Бесплатная замена блюд в меню" %}</p>
+      </div>
+      <div class="benefit-item">
+        <img src="{% static 'images/product.png' %}" alt="{% trans "Иконка натуральных продуктов" %}">
+        <p>{% trans "Готовим из натуральных продуктов" %}</p>
+      </div>
     </div>
 
-    <div class="delivery-map">
-        <img src="{% static 'images/map.png' %}" alt="Карта доставки">
+    <div class="delivery-buttons">
+      <a href="#" class="btn-order">{% trans "Сделать заказ →" %}</a>
+      <a href="#" class="btn-more-info">{% trans "Узнать больше о доставке →" %}</a>
     </div>
+  </div>
+
+  <div class="delivery-map">
+    <img src="{% static 'images/map.png' %}" alt="{% trans "Карта доставки" %}">
+  </div>
 </section>
+    
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // Функция переключения активных кнопок
+                const handleActiveButton = (buttonsContainer) => {
+            const buttons = buttonsContainer.querySelectorAll(".option");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                });
+            });
+        };
+
+    // Инициализация для каждой строки с кнопками
+        document.querySelectorAll(".program-row .options").forEach(container => {
+            handleActiveButton(container);
+        });
+        });
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const openCalendarBtn = document.getElementById("openCalendar");
+  const closeCalendarBtn = document.getElementById("closeCalendar");
+  const calendarModal = document.getElementById("calendarModal");
+  const submitDateBtn = document.getElementById("submitDate");
+  const selectedDateSpan = document.getElementById("selectedDate");
+  const calendarContainer = document.getElementById("calendarContainer");
+
+  let selectedDate = null;
+
+  // Функция рендеринга календаря
+  function renderCalendar(date) {
+    const monthNames = ["{% trans "Январь" %}", "{% trans "Февраль" %}", "{% trans "Март" %}", "{% trans "Апрель" %}", "{% trans "Май" %}", "{% trans "Июнь" %}", 
+                        "{% trans "Июль" %} ", "{% trans "Август" %} ", "{% trans "Сентябрь" %}", "{% trans "Октябрь" %}", "{% trans "Ноябрь" %}", "{% trans "Декабрь" %}"];
+    const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+    // Очистка календаря
+    calendarContainer.innerHTML = `
+      <div class="calendar-header">
+        <button id="prevMonth">&lt;</button>
+        <span>${monthNames[date.getMonth()]} ${date.getFullYear()}</span>
+        <button id="nextMonth">&gt;</button>
+      </div>
+      <table>
+        <thead><tr>${daysOfWeek.map(day => `<th>${day}</th>`).join("")}</tr></thead>
+        <tbody></tbody>
+      </table>
+    `;
+
+    const tbody = calendarContainer.querySelector("tbody");
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    const lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+    let row = "<tr>";
+    for (let i = 1; i < (firstDay || 7); i++) row += "<td></td>";
+
+    for (let day = 1; day <= lastDate; day++) {
+      row += `<td class="calendar-day">${day}</td>`;
+      if ((day + firstDay - 1) % 7 === 0) {
+        row += "</tr><tr>";
+      }
+    }
+    row += "</tr>";
+    tbody.innerHTML = row;
+
+    // Добавляем обработку кликов по дням
+    tbody.querySelectorAll(".calendar-day").forEach(day => {
+      day.addEventListener("click", () => {
+        tbody.querySelectorAll(".calendar-day").forEach(d => d.classList.remove("selected"));
+        day.classList.add("selected");
+        selectedDate = `${day.textContent.padStart(2, "0")}.${(date.getMonth() + 1)
+          .toString().padStart(2, "0")}.${date.getFullYear()}`;
+      });
+    });
+
+    // Переключение месяцев
+    document.getElementById("prevMonth").addEventListener("click", () => {
+      renderCalendar(new Date(date.getFullYear(), date.getMonth() - 1));
+    });
+    document.getElementById("nextMonth").addEventListener("click", () => {
+      renderCalendar(new Date(date.getFullYear(), date.getMonth() + 1));
+    });
+  }
+
+  // Открытие и закрытие модального окна
+  openCalendarBtn.addEventListener("click", () => {
+    calendarModal.style.display = "block";
+    renderCalendar(new Date());
+  });
+  closeCalendarBtn.addEventListener("click", () => calendarModal.style.display = "none");
+  window.addEventListener("click", event => {
+    if (event.target === calendarModal) calendarModal.style.display = "none";
+  });
+
+  // Подтверждение выбранной даты
+  submitDateBtn.addEventListener("click", () => {
+    if (selectedDate) {
+      selectedDateSpan.textContent = selectedDate;
+      calendarModal.style.display = "none";
+    } else {
+      alert("{% trans "Пожалуйста, выберите дату!" %}");
+    }
+  });
+});
+</script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("team-container");
+    const prevBtn = document.getElementById("team-prev");
+    const nextBtn = document.getElementById("team-next");
+
+    const scrollAmount = 240; // Шаг прокрутки
+
+    prevBtn.addEventListener("click", () => {
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+});
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".day-tab");
+  const cardsContainer = document.getElementById("cardsContainer");
+  const scrollLeftBtn = document.getElementById("scrollLeft");
+  const scrollRightBtn = document.getElementById("scrollRight");
+
+  const scrollAmount = 300; // Шаг прокрутки
+
+  // Обновление вкладок
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      // Удаляем активный класс у всех вкладок
+      tabs.forEach((t) => t.classList.remove("active"));
+      // Добавляем активный класс текущей вкладке
+      tab.classList.add("active");
+
+      // Очищаем контейнер карточек и заполняем его
+      cardsContainer.innerHTML = ""; // Динамически заполняем карточки
+      {% for dish in dishes %}
+      cardsContainer.insertAdjacentHTML(
+        "beforeend",
+        `
+          <div class="card">
+            <img src="{{ dish.image.url }}" alt="{{ dish.name }}" class="card-image">
+            <span class="label">{{ dish.category }}</span>
+            <h4 class="card-title">{{ dish.name }}</h4>
+            <p class="card-info">Ккал: {{ dish.calories }} | Б: {{ dish.proteins }} | Ж: {{ dish.fats }} | У: {{ dish.carbs }}</p>
+          </div>
+        `
+      );
+      {% endfor %}
+    });
+  });
+
+  // Прокрутка влево
+  scrollLeftBtn.addEventListener("click", () => {
+    cardsContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  // Прокрутка вправо
+  scrollRightBtn.addEventListener("click", () => {
+    cardsContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  // Инициализация: активируем первую вкладку
+  if (tabs.length > 0) {
+    tabs[0].click();
+  }
+});
+</script>
+
 {% endblock %}

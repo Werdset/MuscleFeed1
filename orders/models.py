@@ -26,3 +26,12 @@ def get_order_days(order):
     """Вспомогательная функция для расчета дней заказа"""
     # Логика расчета дней, когда заказ активен и не заморожен
     pass
+
+class CallbackRequest(models.Model):
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_responded = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Заявка от {self.name} ({self.phone})"

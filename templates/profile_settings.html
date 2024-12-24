@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="profile-page">
+    <!-- Навигация назад -->
+    <div class="breadcrumbs">
+        <a href="{% url 'personal_cabinet' %}" class="breadcrumb-link">
+            <img src="{% static 'images/home-smile.png' %}" alt="{% trans 'Домой' %}" class="breadcrumb-icon">
+            {% trans "Личный кабинет" %}
+        </a>
+        <span class="breadcrumb-separator">></span>
+        <span class="breadcrumb-current">{% trans "Профиль" %}</span>
+    </div>
+
+    <!-- Назад в Личный кабинет -->
+    <div class="back-navigation">
+        <a href="{% url 'personal_cabinet' %}" class="back-link">
+            <img src="{% static 'images/arrow.png' %}" alt="{% trans 'Назад' %}" class="arrow-icon">
+            {% trans "Назад в Личный кабинет" %}
+        </a>
+    </div>
+
+    <h1 class="page-title">{% trans "ВАШ ПРОФИЛЬ" %}</h1>
+
+    <!-- Контейнер профиля -->
+    <div class="profile-container">
+        <!-- Контактные данные -->
+        <div class="profile-card">
+            <h2>{% trans "КОНТАКТНЫЕ ДАННЫЕ" %}</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label>{% trans "Как вас зовут" %}</label>
+                    <div class="input-with-icon">
+                        <img src="{% static 'images/user-02.png' %}" alt="{% trans 'Имя' %}">
+                        <input type="text" name="name" value="{{ profile.name }}" placeholder="{% trans 'Имя' %}" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>{% trans "Ваша фамилия" %}</label>
+                    <div class="input-with-icon">
+                        <img src="{% static 'images/user-02.png' %}" alt="{% trans 'Фамилия' %}">
+                        <input type="text" name="surname" value="{{ profile.surname }}" placeholder="{% trans 'Фамилия' %}" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>{% trans "Ваш телефон" %}</label>
+                    <div class="input-with-icon">
+                        <img src="{% static 'images/phone-icon.png' %}" alt="{% trans 'Телефон' %}">
+                        <input type="text" name="phone" value="{{ profile.phone }}" placeholder="{% trans '+7 (XXX) XXX-XX-XX' %}" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>{% trans "Ваша почта" %}</label>
+                    <div class="input-with-icon">
+                        <img src="{% static 'images/Icon.png' %}" alt="{% trans 'Email' %}">
+                        <input type="email" name="email" value="{{ user.email }}" placeholder="{% trans 'mail@example.com' %}" required>
+                    </div>
+                </div>
+                <button type="submit" class="save-button">{% trans "Сохранить изменения" %} →</button>
+            </form>
+        </div>
+
+        <!-- Адреса доставки -->
+        <div class="profile-card">
+            <h2>{% trans "АДРЕСА ДОСТАВКИ" %}</h2>
+            <div class="address-list">
+                <!-- Основной адрес -->
+                <div class="address-item">
+                    <span>✔ {% trans "Основной адрес" %}</span>
+                    <p>{{ profile.main_address }}</p>
+                </div>
+                <!-- Другие адреса -->
+                {% for address in other_addresses %}
+                <div class="address-item">
+                    <p>{{ address }}</p>
+                    <div class="address-actions">
+                        <img src="/static/icons/edit-icon.svg" alt="{% trans 'Редактировать' %}">
+                        <img src="/static/icons/delete-icon.svg" alt="{% trans 'Удалить' %}">
+                    </div>
+                </div>
+                {% empty %}
+                <p>{% trans "Нет дополнительных адресов" %}</p>
+                {% endfor %}
+            </div>
+            <button class="add-address-button">{% trans "Добавить адрес" %} →</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

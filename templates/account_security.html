@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="security-page">
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+        <a href="{% url 'personal_cabinet' %}" class="breadcrumb-link">
+            <img src="{% static 'images/home-smile.png' %}" alt="{% trans 'Домой' %}" class="breadcrumb-icon"> {% trans "Личный кабинет" %}
+        </a>
+        <span class="breadcrumb-separator">></span>
+        <span class="breadcrumb-current">{% trans "Безопасность" %}</span>
+    </div>
+
+    <!-- Назад в Личный кабинет -->
+    <div class="back-navigation">
+        <a href="{% url 'personal_cabinet' %}" class="back-link">
+            <img src="{% static 'images/arrow.png' %}" alt="{% trans 'Назад' %}"> {% trans "Назад в Личный кабинет" %}
+        </a>
+    </div>
+
+    <!-- Заголовок -->
+    <h1 class="page-title">{% trans "БЕЗОПАСНОСТЬ" %}</h1>
+
+    <!-- Форма смены пароля -->
+    <div class="security-card">
+        <h2>{% trans "СМЕНИТЬ ПАРОЛЬ" %}</h2>
+        <form method="POST" id="password-form">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="old_password">{% trans "Ваш старый пароль" %}</label>
+                <div class="input-with-icon">
+                    <img src="{% static 'icons/lock-icon.svg' %}" alt="{% trans 'Пароль' %}">
+                    <input type="password" id="old_password" name="old_password" placeholder="********" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="new_password">{% trans "Ваш новый пароль" %}</label>
+                <div class="input-with-icon">
+                    <img src="{% static 'icons/lock-icon.svg' %}" alt="{% trans 'Пароль' %}">
+                    <input type="password" id="new_password" name="new_password" placeholder="********" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">{% trans "Повторите новый пароль" %}</label>
+                <div class="input-with-icon">
+                    <img src="{% static 'icons/lock-icon.svg' %}" alt="{% trans 'Пароль' %}">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="********" required>
+                </div>
+                <span class="error-message" id="error-message" style="display: none;">{% trans "Пароли не совпадают" %}</span>
+            </div>
+            <button type="submit" class="save-button">{% trans "Сохранить изменения →" %}</button>
+        </form>
+    </div>
+</div>
+
+<!-- Скрипт для проверки паролей -->
+<script>
+    document.getElementById('password-form').addEventListener('submit', function (e) {
+        const newPassword = document.getElementById('new_password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        if (newPassword !== confirmPassword) {
+            e.preventDefault(); // Останавливаем отправку формы
+            errorMessage.style.display = 'block'; // Показываем сообщение об ошибке
+        } else {
+            errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
+        }
+    });
+</script>
+{% endblock %}

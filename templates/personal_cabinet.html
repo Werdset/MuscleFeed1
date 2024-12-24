@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+    <div class="breadcrumbs">
+        <a href="{% url 'personal_cabinet' %}">{% trans "Личный кабинет" %}</a> >
+        <span>{% trans "Ваши заказы" %}</span>
+    </div>
+
+    <h1 class="page-title">{% trans "КОНФИГУРАЦИЯ РАЦИОНА" %}</h1>
+    <p>{% trans "Наше меню разработано профессиональными диетологами из натуральных продуктов для достижения ваших целей." %}</p>
+
+    <div class="order-card">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label>{% trans "Рацион:" %}</label>
+                <select name="diet">
+                    <option value="balanced">{% trans "Сбалансированный" %}</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>{% trans "Калорийность:" %}</label>
+                <input type="number" name="calories" value="{{ order.calories }}">
+            </div>
+            <div class="input-group">
+                <label>{% trans "Длительность:" %}</label>
+                <input type="text" name="duration" value="{{ order.duration }}">
+            </div>
+            <div class="input-group">
+                <label>{% trans "Аллергены:" %}</label>
+                <input type="text" name="allergens" value="{{ order.allergens }}">
+            </div>
+            <button type="submit" class="btn green">{% trans "Сохранить изменения" %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

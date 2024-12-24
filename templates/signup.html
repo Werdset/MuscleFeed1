@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Регистрация{% endblock %}
+{% block title %}{% trans "Регистрация" %}{% endblock %}
 
 {% block content %}
-<h2>Регистрация</h2>
+<h2>{% trans "Регистрация" %}</h2>
 
 {% if form.non_field_errors %}
     <p class="error">{{ form.non_field_errors }}</p>
@@ -17,11 +18,12 @@
         <p>
             <label>
                 <input type="checkbox" name="agreed" required>
-                Я согласен с условиями использования.
+                {% trans "Я согласен с условиями использования." %}
             </label>
         </p>
     {% endif %}
 
-    <button type="submit">Продолжить</button>
+    <button type="submit">{% trans "Продолжить" %}</button>
 </form>
 {% endblock %}
+

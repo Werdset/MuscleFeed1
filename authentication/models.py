@@ -4,20 +4,22 @@ import random
 
 
 class Profile(models.Model):
-    STATUS_CHOICES = [('activation', 'Отправленна ссылка активации'), ('active', 'Активен'), ('ban', 'Забанен')]
+    STATUS_CHOICES = [('activation', 'Отправлена ссылка активации'), ('active', 'Активен'), ('ban', 'Забанен')]
     LANGUAGE_CHOICES = [('ru', 'Русский'), ('he', 'Иврит')]
     SEX_CHOICES = [('male', 'Мужской'), ('female', 'Женский')]
 
     user = models.OneToOneField(User, verbose_name='Пользователь', on_delete=models.CASCADE)
     name = models.CharField('Имя', max_length=150, null=True, blank=True)
     surname = models.CharField('Фамилия', max_length=150, null=True, blank=True)
-    sex = models.CharField('Пол', max_length=6, choices=SEX_CHOICES, default='male')
-    status = models.CharField('Статус', max_length=10, choices=STATUS_CHOICES, default='activation')
-    language = models.CharField('Язык', max_length=2, choices=LANGUAGE_CHOICES, default='ru')
     phone = models.CharField('Телефон', max_length=150, null=True, blank=True)
-    address = models.CharField('Адрес', max_length=150, null=True, blank=True)
+    main_address = models.CharField('Основной адрес', max_length=255, null=True, blank=True)
+    other_addresses = models.TextField('Другие адреса', null=True, blank=True)  # Храним как текст, каждый адрес с новой строки
     created = models.DateTimeField('Дата создания', auto_now_add=True)
-    is_moderator = models.BooleanField('Модератор', default=False)
+
+    def get_other_addresses(self):
+        if self.other_addresses:
+            return self.other_addresses.split("\n")
+        return []
 
     def __str__(self):
         return self.user.username

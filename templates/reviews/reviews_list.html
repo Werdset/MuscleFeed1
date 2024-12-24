@@ -1,21 +1,79 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block title %}Отзывы{% endblock %}
+{% block title %}Отзывы наших покупателей{% endblock %}
 
 {% block content %}
-<h2>Отзывы наших клиентов</h2>
-<div class="reviews-gallery">
-    {% for review in reviews %}
-    <div class="review-card">
-        {% if review.image %}
-            <img src="{{ review.image.url }}" alt="Изображение отзыва">
-        {% else %}
-            <img src="{% static 'images/default-review.jpg' %}" alt="Отзыв клиента">
-        {% endif %}
-        <h3>{{ review.user.username }}</h3>
-        <p>{{ review.content|linebreaks }}</p>
-        <p><strong>Рейтинг:</strong> {{ review.rating }}</p>
+<div class="reviews-container">
+
+    <!-- Заголовок страницы -->
+    <h1 class="page-title">ОТЗЫВЫ НАШИХ ПОКУПАТЕЛЕЙ</h1>
+    <p class="page-description">Наше меню разработано профессиональными диетологами, приготовлено только из натуральных продуктов и рассчитано на каждого человека под его цели.</p>
+
+    <!-- Блок отзывов -->
+    <div class="reviews-list">
+        {% for review in reviews %}
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="{{ review.image.url }}" alt="Фото отзыва">
+                </div>
+                <div class="review-content">
+                    <p class="review-title">{{ review.user.first_name }} {{ review.user.last_name }}</p>
+                    <p class="review-text">{{ review.text|truncatewords:30 }}</p>
+                    <a href="#" class="review-link">Смотреть весь отзыв</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>Отзывов пока нет. Будьте первым!</p>
+        {% endfor %}
     </div>
-    {% endfor %}
+
+    <!-- Пагинация -->
+    <div class="pagination">
+        <a href="#" class="pagination-link">&laquo;</a>
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">&raquo;</a>
+    </div>
+
+    <!-- Форма добавления отзыва -->
+<div class="review-form-section">
+    <h2 class="form-title">ХОТИТЕ ОСТАВИТЬ ОТЗЫВ?</h2>
+    <form method="POST" action="{% url 'reviews:write_review' %}" enctype="multipart/form-data" class="review-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="name">Как вас зовут?</label>
+            <input type="text" name="name" placeholder="Марина Кузякина" required>
+        </div>
+
+        <div class="form-group">
+            <label for="diet">Какой рацион вы пробовали?</label>
+            <select name="diet" required>
+                <option value="" disabled selected>Выберите рацион</option>
+                <option value="balanced">Сбалансированный</option>
+                <option value="detox">Детокс</option>
+                <option value="mass">Для набора массы</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="text">Что вы можете рассказать о нём?</label>
+            <textarea name="text" placeholder="Поделитесь своими впечатлениями" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Добавить фото к отзыву (необязательно)</label>
+            <input type="file" name="image">
+        </div>
+
+        <div class="form-agreement">
+            <input type="checkbox" name="agree" required>
+            <label for="agree">Я согласен на обработку персональных данных</label>
+        </div>
+
+        <div class="form-submit">
+            <button type="submit" class="btn orange">Оставить отзыв →</button>
+        </div>
+    </form>
 </div>
 {% endblock %}

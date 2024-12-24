@@ -5,7 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23c6e93b-e36e-4b34-aa62-5a5bd8671bfb" name="Changes" comment="а">
+      <change afterPath="$PROJECT_DIR$/settings/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account_orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account_security.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/certificates.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contacts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/delivery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/discounts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/menu_tariffs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/order_configuration.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/order_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/partner_cabinet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/password_reset_request.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/payment_methods.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/personal_cabinet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/privacy_policy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile_settings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/public_offer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ration_balanced.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ration_detox.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ration_dry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ration_mass.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/site_map.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MuscleFeed/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MuscleFeed/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MuscleFeed/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MuscleFeed/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dishes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dishes/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/reports/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/reports/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviews/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reviews/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reviews/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reviews/reviews_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reviews/reviews_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +174,13 @@
       <workItem from="1733939882660" duration="3232000" />
       <workItem from="1733997526297" duration="2477000" />
       <workItem from="1734083288432" duration="562000" />
+      <workItem from="1734458011543" duration="19142000" />
+      <workItem from="1734527601090" duration="1851000" />
+      <workItem from="1734904830063" duration="177000" />
+      <workItem from="1734905015193" duration="297000" />
+      <workItem from="1734905344820" duration="6473000" />
+      <workItem from="1734954486126" duration="4609000" />
+      <workItem from="1734983633336" duration="1199000" />
     </task>
     <task id="LOCAL-00001" summary="новый проект">
       <option name="closed" value="true" />
@@ -159,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731605104382</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="а">
+      <option name="closed" value="true" />
+      <created>1734458408249</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734458408250</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

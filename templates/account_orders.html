@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="orders-page">
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+        <a href="{% url 'personal_cabinet' %}" class="breadcrumb-link">
+            <img src="{% static 'images/home-smile.png' %}" alt="{% trans 'Домой' %}"> {% trans "Личный кабинет" %}
+        </a>
+        <span class="breadcrumb-separator">></span>
+        <span class="breadcrumb-current">{% trans "Заказы" %}</span>
+    </div>
+
+    <!-- Назад в Личный кабинет -->
+    <div class="back-navigation">
+        <a href="{% url 'personal_cabinet' %}" class="back-link">
+            ← {% trans "Назад в Личный кабинет" %}
+        </a>
+    </div>
+
+    <!-- Заголовок -->
+    <h1 class="page-title">{% trans "ВАШИ ЗАКАЗЫ" %}</h1>
+
+    <div class="orders-container">
+        <!-- Левая панель -->
+        <div class="orders-sidebar">
+            <ul>
+                <li class="{% if current_status == 'all' %}active{% endif %}">
+                    <a href="?status=all">{% trans "Все заказы" %}</a>
+                </li>
+                <li class="{% if current_status == 'active' %}active{% endif %}">
+                    <a href="?status=active">{% trans "Активные" %}</a>
+                </li>
+                <li class="{% if current_status == 'frozen' %}active{% endif %}">
+                    <a href="?status=frozen">{% trans "Замороженные" %}</a>
+                </li>
+                <li class="{% if current_status == 'unpaid' %}active{% endif %}">
+                    <a href="?status=unpaid">{% trans "Не оплаченные" %}</a>
+                </li>
+                <li class="{% if current_status == 'completed' %}active{% endif %}">
+                    <a href="?status=completed">{% trans "Завершенные" %}</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Список заказов -->
+        <div class="orders-list">
+            {% for order in orders %}
+            <div class="order-card">
+                <div class="order-header">
+                    <span class="order-status">
+                        {% if order.status == 'active' %}
+                            🟢 {% trans "Активный заказ" %}
+                        {% elif order.status == 'frozen' %}
+                            🟠 {% trans "Заказ заморожен" %}
+                        {% elif order.status == 'unpaid' %}
+                            🔴 {% trans "Не оплачен" %}
+                        {% elif order.status == 'completed' %}
+                            ⚪ {% trans "Завершен" %}
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="order-body">
+                    <img src="{% static 'images/order-placeholder.jpg' %}" alt="{% trans 'Заказ' %}" class="order-image">
+                    <div class="order-details">
+                        <h3>{% trans "ПРАВИЛЬНОЕ ПИТАНИЕ" %}</h3>
+                        <p>{% trans "Описание заказа" %}: {{ order.description }}</p>
+                        <div class="order-info">
+                            <span>🔥 {{ order.total_price }} {% trans "руб" %}</span>
+                            <span>📅 {{ order.duration }} {% trans "дней" %}</span>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn orange">{% trans "Подробнее о меню" %}</button>
+                            {% if order.status == 'active' %}
+                                <button class="btn green">{% trans "Заменить блюдо" %}</button>
+                                <button class="btn gray">{% trans "Заморозить" %}</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>{% trans "Заказы с этим статусом отсутствуют." %}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
